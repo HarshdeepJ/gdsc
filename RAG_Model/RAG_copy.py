@@ -57,7 +57,7 @@ def load_chapter_vectorstore(chapter):
 # Function to retrieve relevant sections based on chapter and topic
 def retrieve_chapter_topic(chapter, topic):
     retriever = load_chapter_vectorstore(chapter)
-    print('retrieved')
+    st.write(retriever)
     if isinstance(retriever, str):  # Check if an error occurred
         return [retriever]  # Return error message as a list for consistency
     
@@ -75,7 +75,7 @@ def teach_topic_with_quiz(chapter, topic, year):
     #st.write('In teach_topic_with_quiz')
     docs = retrieve_chapter_topic(chapter, topic)
     st.write(type(docs[0]))
-    st.write(docs)
+    #st.write(docs)
     source_text = "\n".join([doc.page_content for doc in docs])
 
     teaching_prompt = f"""
