@@ -13,6 +13,8 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 import os
 from dotenv import load_dotenv
 import json
+import torch
+torch.classes.__path__ = []
 
 def get_chapter_path(chapter_key):
     chapter_list = [r'/RAG_Model/faiss_indexes/faiss_index_chapter_1',
