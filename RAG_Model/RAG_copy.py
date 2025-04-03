@@ -29,7 +29,7 @@ def get_chapter_path(chapter_key):
 
 load_dotenv()
 FAISS_INDEX_FOLDER = "faiss_indexes"
-def cload_chapter_vectorstore(chapter):
+def load_chapter_vectorstore(chapter):
     embeddings_model = HuggingFaceEmbeddings(
     model_name="jinaai/jina-embeddings-v2-base-en",
     model_kwargs={'device': 'cpu'}  # Use 'cuda' if you have GPU
