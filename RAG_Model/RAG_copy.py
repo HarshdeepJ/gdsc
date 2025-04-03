@@ -15,29 +15,40 @@ from dotenv import load_dotenv
 import json
 
 def get_chapter_path(chapter_key):
-    chapter_list = [r'RAG_Model/faiss_indexes/faiss_index_chapter_1',
-                    r'RAG_Model/faiss_indexes/faiss_index_chapter_2',
-                    r'RAG_Model/faiss_indexes/faiss_index_chapter_3',
-                    r'RAG_Model/faiss_indexes/faiss_index_chapter_4',
-                    r'RAG_Model/faiss_indexes/faiss_index_chapter_5',
-                    r'RAG_Model/faiss_indexes/faiss_index_chapter_6']
+    chapter_list = [r'/RAG_Model/faiss_indexes/faiss_index_chapter_1',
+                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_2',
+                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_3',
+                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_4',
+                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_5',
+                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_6']
     index = int(chapter_key[-1])
     return chapter_list[index-1]
 
 load_dotenv()
 FAISS_INDEX_FOLDER = "faiss_indexes"
-def load_chapter_vectorstore(chapter):
+def cload_chapter_vectorstore(chapter):
     embeddings_model = HuggingFaceEmbeddings(
     model_name="jinaai/jina-embeddings-v2-base-en",
     model_kwargs={'device': 'cpu'}  # Use 'cuda' if you have GPU
     )
     # Convert chapter to a safe filename (e.g., "CHAPTER 4" -> "chapter_4")
     chapter_key = chapter.lower().replace(":", "").replace(" ", "_")
+<<<<<<< HEAD
+    #cwd_path = os.getcwd()
+    #print(cwd_path)
+    index_path = get_chapter_path(chapter_key)
+=======
     cwd_path = os.getcwd()
     print(cwd_path)
     #index_path = get_chapter_path(chapter_key)
+>>>>>>> 232353dab434345893ce0f8fc6b77f319c3025c0
     
+<<<<<<< HEAD
+    #index_path = os.path.join(cwd_path,'RAG_Model',get_chapter_path(chapter_key))
+    #index_path = os.path.abspath()
+=======
     index_path = os.path.join(cwd_path,get_chapter_path(chapter_key))
+>>>>>>> 232353dab434345893ce0f8fc6b77f319c3025c0
     print(index_path)
     
     try:
@@ -59,7 +70,7 @@ def retrieve_chapter_topic(chapter, topic):
     
     query = f"Find information in {chapter} about {topic}."
     results = retriever.get_relevant_documents(query)
-    
+    print(type(results))
     # If results are insufficient, we'll stick to chapter-specific search only
     # since we have separate indexes per chapter
     return results
@@ -67,7 +78,7 @@ def retrieve_chapter_topic(chapter, topic):
 # %%
 
 def teach_topic_with_quiz(chapter, topic, year):
-    llm = ChatGroq(model="llama3-8b-8192", api_key = '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')
+    llm = ChatGroq(model="llama3-8b-8192", api_key = st.secrets.REST.GROQ_API_KEY)
     docs = retrieve_chapter_topic(chapter, topic)
     print(type(docs[0]))
     print(docs)
