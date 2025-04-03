@@ -18,12 +18,12 @@ torch.classes.__path__ = []
 import streamlit as st
 
 def get_chapter_path(chapter_key):
-    chapter_list = [r'/RAG_Model/faiss_indexes/faiss_index_chapter_1',
-                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_2',
-                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_3',
-                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_4',
-                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_5',
-                    r'/RAG_Model/faiss_indexes/faiss_index_chapter_6']
+    chapter_list = [r'RAG_Model/faiss_indexes/faiss_index_chapter_1',
+                    r'RAG_Model/faiss_indexes/faiss_index_chapter_2',
+                    r'RAG_Model/faiss_indexes/faiss_index_chapter_3',
+                    r'RAG_Model/faiss_indexes/faiss_index_chapter_4',
+                    r'RAG_Model/faiss_indexes/faiss_index_chapter_5',
+                    r'RAG_Model/faiss_indexes/faiss_index_chapter_6']
     index = int(chapter_key[-1])
     return chapter_list[index-1]
 
