@@ -57,7 +57,7 @@ def load_chapter_vectorstore(chapter):
 # Function to retrieve relevant sections based on chapter and topic
 def retrieve_chapter_topic(chapter, topic):
     retriever = load_chapter_vectorstore(chapter)
-    
+    print('retrieved')
     if isinstance(retriever, str):  # Check if an error occurred
         return [retriever]  # Return error message as a list for consistency
     
