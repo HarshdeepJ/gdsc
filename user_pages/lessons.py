@@ -576,21 +576,6 @@ st.markdown("""
             border: 1px solid #2c2c2c !important;
         }
 
-        /* Button Styling */
-        .stButton>button {
-            background-color: #45b7d1;
-            color: #121212;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .stButton>button:hover {
-            background-color: #4ecdc4;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(69, 183, 209, 0.3);
-        }
 
         /* Result Box */
         .result-box {
