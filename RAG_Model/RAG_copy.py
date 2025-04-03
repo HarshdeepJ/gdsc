@@ -72,7 +72,7 @@ def retrieve_chapter_topic(chapter, topic):
 
 def teach_topic_with_quiz(chapter, topic, year):
     llm = ChatGroq(model="llama3-8b-8192", api_key = st.secrets.REST.GROQ_API_KEY)
-    print('In teach_topic_with_quiz')
+    st.write('In teach_topic_with_quiz')
     docs = retrieve_chapter_topic(chapter, topic)
     print(type(docs[0]))
     print(docs)
