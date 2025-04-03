@@ -33,22 +33,12 @@ def cload_chapter_vectorstore(chapter):
     )
     # Convert chapter to a safe filename (e.g., "CHAPTER 4" -> "chapter_4")
     chapter_key = chapter.lower().replace(":", "").replace(" ", "_")
-<<<<<<< HEAD
     #cwd_path = os.getcwd()
     #print(cwd_path)
     index_path = get_chapter_path(chapter_key)
-=======
-    cwd_path = os.getcwd()
-    print(cwd_path)
-    #index_path = get_chapter_path(chapter_key)
->>>>>>> 232353dab434345893ce0f8fc6b77f319c3025c0
     
-<<<<<<< HEAD
     #index_path = os.path.join(cwd_path,'RAG_Model',get_chapter_path(chapter_key))
     #index_path = os.path.abspath()
-=======
-    index_path = os.path.join(cwd_path,get_chapter_path(chapter_key))
->>>>>>> 232353dab434345893ce0f8fc6b77f319c3025c0
     print(index_path)
     
     try:
